@@ -1,0 +1,119 @@
+<div class="col-md-12">
+            <div class="form-group">
+                <input name="category" type="radio" value="star" ng-model="category" id="stars">
+                    <label for="star">Stars</label>
+                <input name="category" type="radio" value="user" ng-model="category" id="user">
+                <label for="user">User</label>
+                <input name="category" type="radio" value="repository" ng-model="category" id="repository" ng-init="category = 'repository'"/>
+                <label for="repository">Repositories</label>
+            </div>
+            
+	<div ng-if="category == 'star'">
+        Stars
+      </div>
+      <div ng-if="category == 'user'">
+        User
+        <table>
+           <tr class="tableheader">
+             <th>Profile Picture</th>
+             <th>GitHub URl</th>
+             <th>Rating</th>
+             <th>Total Repo</th>
+           </tr>
+           <tr class="listview" ng-repeat="user in users">
+             <td><img src="content/images/user.jpg" width="50px" height="50px"></td>
+             <td>{{user.fullgithuburl}}</td>
+             <td>{{user.rating}}</td>
+             <td>{{user.totalrepo}}</td>
+           </tr>
+        </table>
+      </div>
+      <div ng-if="category == 'repository'">
+        Repository
+        <table>
+        <tr class="tableheader">
+             <th>Repo Name</th>
+             <th>Full URl</th>
+             <th>Author</th>
+           </tr>
+           <tr class="listview" ng-repeat="user in users">
+             <td>{{user.reponame}}</td>
+             <td>{{user.fullurl}}</td>
+             <td>{{user.author}}</td>
+           </tr>
+        </table>
+      </div>
+        </div>
+
+
+<div class="col-md-12">
+                <div class="form-group">
+                  <input name="category" type="radio" value="star" ng-model="category" id="stars">
+                  <label for="star">Stars</label>
+                  <input name="category" type="radio" value="user" ng-model="category" id="user">
+                  <label for="user">User</label>
+                  <input name="category" type="radio" value="repository" ng-model="category" id="repository" ng-init="category = 'repository'"/>
+                  <label for="repository">Repositories</label>
+                </div>
+              </div>
+
+
+
+$scope.users = [{
+			"profileimage":"ghg",
+			"fullgithuburl": "https://github.com/rajiprak",
+			"rating":4.5,
+			"totalrepo": 4,
+			"reponame": "testCDOE",
+			"fullurl": "https://github.com/rajiprak/testCDOE",
+			"author": "Rajni Prakash"
+    	},
+		{
+			"profileimage":"abc",
+			"fullgithuburl": "https://github.com/sshieh",
+			"rating":4.8,
+			"totalrepo": 2,
+			"reponame": "appswift",
+			"fullurl": "https://github.com/sshieh/appswift",
+			"author": "Susan Shieh"
+		}
+		
+  		]
+
+
+
+
+<div class="col-md-12">
+            <div class="search float-right">
+                <span class="fa fa-search"></span>
+                <input type="search" placeholder="Search" ng-model="searchText">
+            </div>
+        </div>
+
+
+
+.search {
+    position: relative;
+    color: #aaa;
+    font-size: 14px;
+  }
+
+  .search input {
+    width: 200px;
+    height: 34px;
+    background: #FFFFFF;
+    border: 1px solid #aaa;
+    border-radius: 0px;
+    box-shadow: 0 0 0 #fff, 0 0 0 #fff inset;
+  }
+
+  .search input { 
+    text-indent: 32px;
+  }
+
+  .search .fa-search { 
+    position: absolute;
+    top: 9px;
+    left: 10px;
+  }
+
